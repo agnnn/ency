@@ -3,14 +3,6 @@ resource "azurerm_resource_group" "test" {
   location = "${var.region}"
 }
 
-resource "azurerm_storage_account" "test" {
-  name                     = "${var.storageAcctName}"
-  resource_group_name      = "${var.resource_group}"
-  location                 = "${var.region}"
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
 resource "azurerm_app_service_plan" "test" {
   name                = "azure-functions-test-service-plan"
   location            = "${var.region}"
@@ -20,6 +12,14 @@ resource "azurerm_app_service_plan" "test" {
     tier = "Standard"
     size = "S1"
   }
+}
+
+resource "azurerm_storage_account" "test" {
+  name                     = "${var.storageAcctName}"
+  resource_group_name      = "${var.resource_group}"
+  location                 = "${var.region}"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
 
 resource "azurerm_function_app" "test" {
@@ -39,5 +39,6 @@ resource "azurerm_function_app" "test" {
     "SCM_USE_FUNCPACK_BUILD" = "1"
     "VAULT_URL" = "${var.VAULT_URL}"
     "hello" = "${var.hello}"
+    "hello1" = "${var.hello}"
   }
 }
