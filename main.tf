@@ -43,4 +43,3 @@ resource "azurerm_function_app" "test" {
    "NODE_ENV" = "${var.NODE_ENV}"
    }
  }
-}
