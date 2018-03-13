@@ -25,7 +25,8 @@ resource "azurerm_function_app" "test" {
  location                  = "${var.region}"
  resource_group_name       = "${var.resource_group}"
  app_service_plan_id       = "${azurerm_app_service_plan.test.id}"
- storage_connection_string = "${azurerm_storage_account.test.primary_connection_string}"  app_settings = {
+ storage_connection_string = "${azurerm_storage_account.test.primary_connection_string}"
+ app_settings = {
    "COSMOSDB_NAME" = "${var.COSMOSDB_NAME}"
    "FUNCTION_APP_EDIT_MODE" = "readonly"
    "AzureWebJobsSecretStorageType" = "disabled"
@@ -39,6 +40,7 @@ resource "azurerm_function_app" "test" {
    "hello2" = "${var.hello2}"
    "hello3" = "${var.hello3}"
    "hello4" = "${var.hello4}"
-
+   "NODE_ENV" = "production"
+   }
  }
 }
