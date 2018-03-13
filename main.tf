@@ -40,7 +40,7 @@ resource "azurerm_function_app" "test" {
    "hello2" = "${var.hello2}"
    "hello3" = "${var.hello3}"
    "hello4" = "${var.hello4}"
-   "NODE_ENV" = "production"
+   "NODE_ENV" = "${var.NODE_ENV}"
    }
  }
 }
