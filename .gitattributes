@@ -1,3 +1,0 @@
-appsettings.tf  filter=git-crypt diff=git-crypt
-terraform.tfvars  filter=git-crypt diff=git-crypt
-backend.tf  filter=git-crypt diff=git-crypt
